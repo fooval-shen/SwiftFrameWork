@@ -89,7 +89,7 @@ public class WebKitViewController:BaseViewController {
     public var configuration = WKWebViewConfiguration()
     public var urlRequest:NSURLRequest?
     
-    private final lazy var webKit:WKWebView = {
+    public final lazy var webKit:WKWebView = {
         let webView = WKWebView(frame: CGRectZero, configuration: WKWebViewConfiguration())
         webView.translatesAutoresizingMaskIntoConstraints = false
         webView.addObserver(self, forKeyPath: titleKeyPath, options: .New, context: nil)
