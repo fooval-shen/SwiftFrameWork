@@ -8,7 +8,7 @@
 
 #import "MQActivityIndicatorView.h"
 #import "MQActivityIndicatorAnimation.h"
-
+#import <SwiftFramework/SwiftFramework-Swift.h>
 @interface MQActivityIndicatorView ()
 
 @property(nonatomic,strong) UIColor *color;
@@ -61,13 +61,13 @@
 }
 
 -(void) setUpAnimation{
-    MQActivityIndicatorAnimation *animation = [[MQActivityIndicatorAnimation alloc] initWithColors:@[[self rgbColor:0xFF1D84],[self rgbColor:0xFFA800],[self rgbColor:0x909090]]];
+    MQActivityIndicatorAnimation *animation = [[MQActivityIndicatorAnimation alloc] initWithColors:@[[UIColor color:0xFF1D84],[UIColor color:0xFFA800],[UIColor color:0x909090]]];
    
     [animation setUpAnimationInLayer:self.layer size:self.size color:self.color];
 }
 
--(UIColor *)rgbColor:(NSUInteger)rgbValue {
-    return [UIColor colorWithRed:((rgbValue & 0xFF0000)>>16)/255.0 green:((rgbValue & 0xFF0000)>>8)/255.0 blue:(rgbValue & 0xFF0000)/255.0 alpha:1];
-}
+//-(UIColor *)rgbColor:(NSUInteger)rgbValue {
+//    return [UIColor colorWithRed:((rgbValue & 0xFF0000)>>16)/255.0 green:((rgbValue & 0xFF0000)>>8)/255.0 blue:(rgbValue & 0xFF0000)/255.0 alpha:1];
+//}
 
 @end
