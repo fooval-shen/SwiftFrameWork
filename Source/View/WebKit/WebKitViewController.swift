@@ -86,8 +86,8 @@ public class WebKitViewController:BaseViewController {
    
     public var titleString:String?
     
-    private var configuration = WKWebViewConfiguration()
-    private var urlRequest:NSURLRequest?
+    internal var configuration = WKWebViewConfiguration()
+    internal var urlRequest:NSURLRequest?
     
     private final lazy var webKit:WKWebView = {
         let webView = WKWebView(frame: CGRectZero, configuration: WKWebViewConfiguration())
