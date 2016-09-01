@@ -86,8 +86,8 @@ public class WebKitViewController:BaseViewController {
    
     public var titleString:String?
     
-    internal var configuration = WKWebViewConfiguration()
-    internal var urlRequest:NSURLRequest?
+    public var configuration = WKWebViewConfiguration()
+    public var urlRequest:NSURLRequest?
     
     private final lazy var webKit:WKWebView = {
         let webView = WKWebView(frame: CGRectZero, configuration: WKWebViewConfiguration())
@@ -131,8 +131,13 @@ extension WebKitViewController {
         progressView.hidden = completed
         progressView.setProgress(completed ? 0.0 : Float(webKit.estimatedProgress), animated: !completed)
         UIApplication.sharedApplication().networkActivityIndicatorVisible = !completed
+        if completed {
+            webViewProgerssComplete()
+        }
     }
-    
+    public func webViewProgerssComplete(){
+        updateNavigationItems()
+    }
     private func updateNavigationItems(){
         guard let items = self.navigationItem.leftBarButtonItems else {
             return
