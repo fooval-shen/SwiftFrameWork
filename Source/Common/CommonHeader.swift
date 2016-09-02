@@ -49,7 +49,7 @@ public func delay(second:Double,queue:dispatch_queue_t,closure:dispatch_block_t)
 }
 
 func resourseName(name:String) ->String {
-    return "Frameworks/SwiftFramework.framework/" + name
+    return "Frameworks/SwiftFrameWork.framework/" + name
 }
 func resoursePath(name:String) -> String {
     return "\(NSBundle.mainBundle().bundlePath)/" + resourseName(name)

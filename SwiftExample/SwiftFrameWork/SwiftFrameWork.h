@@ -1,6 +1,6 @@
 //
-//  SwiftFramework.h
-//  SwiftFramework
+//  SwiftFrameWork.h
+//  SwiftFrameWork
 //
 //  Created by shenfh on 16/8/8.
 //  Copyright © 2016年 shenfh. All rights reserved.
