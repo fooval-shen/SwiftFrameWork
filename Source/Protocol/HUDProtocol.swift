@@ -16,39 +16,39 @@ public protocol HUDProtocol:class {
 
 extension HUDProtocol {
     
-    public func showMessage(message:String,delay:NSTimeInterval = 2){
-        hudViewModel       = .Text
+    public func showMessage(_ message:String,delay:TimeInterval = 2){
+        hudViewModel       = .text
         hudView.label.text = message
         showHudView(delay)
     }
     
-    public func showMessage(message:String,customView:UIView,delay:NSTimeInterval = 2){
-        hudViewModel       = .CustomView
+    public func showMessage(_ message:String,customView:UIView,delay:TimeInterval = 2){
+        hudViewModel       = .customView
         hudView.label.text = message
         hudView.customView = customView
         showHudView(delay)
     }
     
-    private func showHudView(delay:NSTimeInterval){
+    fileprivate func showHudView(_ delay:TimeInterval){
         containerView.addSubview(hudView)
-        hudView.showAnimated(true)
-        hudView.hideAnimated(true, afterDelay: delay)
+        hudView.show(animated: true)
+        hudView.hide(animated: true, afterDelay: delay)
     }
-    private var hudView:MBProgressHUD {
+    fileprivate var hudView:MBProgressHUD {
         get{
             if let view = objc_getAssociatedObject(self, &HUDKey) as? MBProgressHUD {
                 return view
             }
             let view = MBProgressHUD(view: self.containerView)
             view.removeFromSuperViewOnHide = true
-            view.square          = true
-            MBProgressHUD.appearance().contentColor = UIColor.whiteColor()
-            view.bezelView.color = UIColor.blackColor()
+            view.isSquare          = true
+            MBProgressHUD.appearance().contentColor = UIColor.white
+            view.bezelView.color = UIColor.black
             objc_setAssociatedObject(self, &HUDKey, view, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             return view
         }
     }
-    private var hudViewModel:MBProgressHUDMode {
+    fileprivate var hudViewModel:MBProgressHUDMode {
         set {
             if hudView.mode != newValue {
                 hudView.mode = newValue

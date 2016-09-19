@@ -10,7 +10,7 @@ import UIKit
 
 class RefreshView:MQRefreshHeaderView{
     
-    class func refresh(block:()->Void )->RefreshView {
+    class func refresh(_ block:@escaping ()->Void )->RefreshView {
         let refreshView = RefreshView()
         refreshView.refreshingBlock = block
         return refreshView

@@ -12,13 +12,13 @@ extension NSArray{
     public func objectAtIndex(safe index: Int) -> AnyObject?{
         guard index >= 0 else {return nil}
         guard index < count else { return nil}
-        return self.objectAtIndex(index)
+        return self.object(at: index) as AnyObject?
         
     }
 }
 
 extension Array {
-    public subscript (let safe index: Int) -> Element? {
+    public subscript (safe index: Int) -> Element? {
         get{
             if count == 0 || index >= count || index < 0 {
                 return nil
@@ -37,25 +37,25 @@ extension Array {
     }
     
     
-    public mutating func addFromArray(array:[Element]){
+    public mutating func addFromArray(_ array:[Element]){
         for object in array {
             append(object)
         }
     }
     
-    public mutating func resetByArray(array:[Element]) {
+    public mutating func resetByArray(_ array:[Element]) {
         removeAll()
         addFromArray(array)
     }
     
-    public mutating func removeAtIndex(let safe index:Int) {
+    public mutating func removeAtIndex(safe index:Int) {
         guard index < count else{return}
-        self.removeAtIndex(index)
+        self.remove(at: index)
     }    
 }
 
 extension Dictionary {
-    public subscript(let safe key:Key) ->Value?{
+    public subscript(safe key:Key) ->Value?{
         get{
             return self[key]
         }

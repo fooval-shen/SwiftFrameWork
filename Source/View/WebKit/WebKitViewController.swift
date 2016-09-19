@@ -11,49 +11,49 @@ import WebKit
 
 private let titleKeyPath = "title"
 private let estimatedProgressKeyPath = "estimatedProgress"
-public class WebKitViewController:BaseViewController {
+open class WebKitViewController:BaseViewController {
     
-    public init(urlRequest: NSURLRequest, configuration: WKWebViewConfiguration = WKWebViewConfiguration() ) {
+    public init(urlRequest: URLRequest, configuration: WKWebViewConfiguration = WKWebViewConfiguration() ) {
         super.init(nibName: nil, bundle: nil)
         self.configuration = configuration
         self.urlRequest    = urlRequest
     }
-    public  convenience init(url: NSURL) {
-        self.init(urlRequest: NSURLRequest(URL: url))
+    public  convenience init(url: URL) {
+        self.init(urlRequest: URLRequest(url: url))
     }    
     public required init?(coder aDecoder: NSCoder) {
         self.configuration = WKWebViewConfiguration()
-        self.urlRequest    = NSURLRequest(URL: NSURL(string: "")!)
+        self.urlRequest    = URLRequest(url: URL(string: "")!)
         super.init(coder: aDecoder)
     }
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
     }
-    public override func prepareUI() {
+    open override func prepareUI() {
         super.prepareUI()
         leftNavButtonClosure = {[unowned self]()->Void in
             if self.webKit.canGoBack {
                 self.webKit.goBack()
             } else {
-                self.navigationController?.popViewControllerAnimated(true)
+                 let _ = self.navigationController?.popViewController(animated: true)
             }
         }
         
         self.view.addSubview(webKit)
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[webKit]-0-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: ["webKit":webKit]))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[webKit]-0-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: ["webKit":webKit]))
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[webKit]-0-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: ["webKit":webKit]))
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[webKit]-0-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: ["webKit":webKit]))
         
         self.view.addSubview(progressView)
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[progressView]-0-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: ["progressView":progressView]))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[progressView(2)]", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: ["progressView":progressView]))
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[progressView]-0-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: ["progressView":progressView]))
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[progressView(2)]", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: ["progressView":progressView]))
     }
-    public override func prepareData() {
+    open override func prepareData() {
         super.prepareData()
         guard let request = self.urlRequest else {
             return
         }
-        webKit.loadRequest(request)
+        webKit.load(request)
         guard let title = self.titleString else {
             navigationTitle("详情")
             return
@@ -64,12 +64,12 @@ public class WebKitViewController:BaseViewController {
     deinit {
         webKit.removeObserver(self, forKeyPath: titleKeyPath)
         webKit.removeObserver(self, forKeyPath: estimatedProgressKeyPath)
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
-    public override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        guard let theKeyPath = keyPath where object as? WKWebView == webKit else {
-            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        guard let theKeyPath = keyPath , object as? WKWebView == webKit else {
+            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
             return
         }
         
@@ -84,16 +84,16 @@ public class WebKitViewController:BaseViewController {
         }
     }
    
-    public var titleString:String?
+    open var titleString:String?
     
-    public var configuration = WKWebViewConfiguration()
-    public var urlRequest:NSURLRequest?
+    open var configuration = WKWebViewConfiguration()
+    open var urlRequest:URLRequest?
     
     public final lazy var webKit:WKWebView = {
-        let webView = WKWebView(frame: CGRectZero, configuration: WKWebViewConfiguration())
+        let webView = WKWebView(frame: CGRect.zero, configuration: WKWebViewConfiguration())
         webView.translatesAutoresizingMaskIntoConstraints = false
-        webView.addObserver(self, forKeyPath: titleKeyPath, options: .New, context: nil)
-        webView.addObserver(self, forKeyPath: estimatedProgressKeyPath, options: .New, context: nil)
+        webView.addObserver(self, forKeyPath: titleKeyPath, options: .new, context: nil)
+        webView.addObserver(self, forKeyPath: estimatedProgressKeyPath, options: .new, context: nil)
         webView.allowsBackForwardNavigationGestures = true
         webView.navigationDelegate = self
         if #available(iOS 9.0, *) {
@@ -102,35 +102,35 @@ public class WebKitViewController:BaseViewController {
         return webView
     }()
     
-    private final lazy var progressView:UIProgressView = {
-        let progressView = UIProgressView(progressViewStyle: .Bar)
+    fileprivate final lazy var progressView:UIProgressView = {
+        let progressView = UIProgressView(progressViewStyle: .bar)
         progressView.translatesAutoresizingMaskIntoConstraints = false
-        progressView.backgroundColor = .clearColor()
-        progressView.trackTintColor  = .clearColor()
-        progressView.hidden = true
+        progressView.backgroundColor = UIColor.clear
+        progressView.trackTintColor  = UIColor.clear
+        progressView.isHidden = true
         return progressView
     }()
     
-    private final lazy var closeButtonItem:UIBarButtonItem = {
-        let item = UIBarButtonItem(title: "关闭", style: .Plain, target: self, action: #selector(closeButtonAction(_:)))
-        item.tintColor = UIColor.whiteColor()
+    fileprivate final lazy var closeButtonItem:UIBarButtonItem = {
+        let item = UIBarButtonItem(title: "关闭", style: .plain, target: self, action: #selector(closeButtonAction(_:)))
+        item.tintColor = UIColor.white
         item.width = 6
         return item
     }()
 }
 
 extension WebKitViewController:WKNavigationDelegate{
-    public func webView(webView: WKWebView, didCommitNavigation navigation: WKNavigation!){
+    public func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!){
         updateNavigationItems()
     }
 }
 
 extension WebKitViewController {
-    private final func updateProgress() {
+    fileprivate final func updateProgress() {
         let completed = webKit.estimatedProgress == 1.0
-        progressView.hidden = completed
+        progressView.isHidden = completed
         progressView.setProgress(completed ? 0.0 : Float(webKit.estimatedProgress), animated: !completed)
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = !completed
+        UIApplication.shared.isNetworkActivityIndicatorVisible = !completed
         if completed {
             webViewProgerssComplete()
         }
@@ -138,7 +138,7 @@ extension WebKitViewController {
     public func webViewProgerssComplete(){
         updateNavigationItems()
     }
-    private func updateNavigationItems(){
+    fileprivate func updateNavigationItems(){
         guard let items = self.navigationItem.leftBarButtonItems else {
             return
         }
@@ -159,7 +159,7 @@ extension WebKitViewController {
         }
     }
     
-    @objc private func closeButtonAction(sender:AnyObject){
-        navigationController?.popViewControllerAnimated(true)
+    @objc fileprivate func closeButtonAction(_ sender:AnyObject){
+         let _ = navigationController?.popViewController(animated: true)
     }
 }

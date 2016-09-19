@@ -17,11 +17,11 @@ extension UITableView{
     }
 }
 
-public class BaseTableViewController: BaseViewController {
-    override public func viewDidLoad() {
+open class BaseTableViewController: BaseViewController {
+    override open func viewDidLoad() {
         super.viewDidLoad();
         if xibTableView == nil {
-            xibTableView = UITableView(frame: CGRectZero, style: tableViewStyle)
+            xibTableView = UITableView(frame: CGRect.zero, style: tableViewStyle)
             xibTableView?.backgroundColor = UIColor.color(0xeaeaea)
             xibTableView?.delegate        = self
             xibTableView?.dataSource      = self
@@ -29,8 +29,8 @@ public class BaseTableViewController: BaseViewController {
             xibTableView?.showsVerticalScrollIndicator = false
             xibTableView!.translatesAutoresizingMaskIntoConstraints = false
             
-            self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-\(tableViewInsets().left)-[tableView]-\(tableViewInsets().right)-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: ["tableView" : xibTableView!]))
-           self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(tableViewInsets().top)-[tableView]-\(tableViewInsets().bottom)-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: ["tableView" : xibTableView!]))
+            self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-\(tableViewInsets().left)-[tableView]-\(tableViewInsets().right)-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: ["tableView" : xibTableView!]))
+           self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(tableViewInsets().top)-[tableView]-\(tableViewInsets().bottom)-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: ["tableView" : xibTableView!]))
         }
         self.xibTableView?.scrollsToTop = true
         
@@ -43,38 +43,38 @@ public class BaseTableViewController: BaseViewController {
     /**
     Auto load bottom data
     */
-    public func autoLoadMore(){
+    open func autoLoadMore(){
         canLoadMore = false
     }
     
-    public func tableViewInsets()->UIEdgeInsets{
-        return UIEdgeInsetsZero
+    open func tableViewInsets()->UIEdgeInsets{
+        return UIEdgeInsets.zero
     }
     
     
-    @IBOutlet private weak var xibTableView:UITableView?
+    @IBOutlet fileprivate weak var xibTableView:UITableView?
     
-    public var tableView:UITableView {
+    open var tableView:UITableView {
         return self.xibTableView!
     }
-    public var tableViewStyle: UITableViewStyle = .Grouped
+    open var tableViewStyle: UITableViewStyle = .grouped
     
-    public  var dataSource: [AnyObject] = [AnyObject]()
+    open  var dataSource: [AnyObject] = [AnyObject]()
     /// 是否可以上拉自动加载
-    public var canLoadMore: Bool = false
+    open var canLoadMore: Bool = false
     
 }
 
 // MARK: - UITableViewDataSource
 extension BaseTableViewController:UITableViewDataSource {
-    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return 1;
     }
     
-    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
     }
-    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell();
     }
 }
@@ -82,29 +82,29 @@ extension BaseTableViewController:UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension BaseTableViewController:UITableViewDelegate {
     
-    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true);
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true);
     }
     
-    public func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath){
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
         let dataCount = dataSource.count
-        if(self.canLoadMore && indexPath.row >= dataCount-5 && dataCount >= 5){
+        if(self.canLoadMore && (indexPath as NSIndexPath).row >= dataCount-5 && dataCount >= 5){
             autoLoadMore();
         }
     }
     
-    public func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 1.0;
     }
     
-    public func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 1.0;
     }
     
-    public func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return nil;
     }
-    public func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return nil;
     }
 

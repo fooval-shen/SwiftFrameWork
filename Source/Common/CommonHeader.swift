@@ -8,53 +8,49 @@
 
 import Foundation
 
-private let backgroundQueue = dispatch_queue_create("com.runQueue.background", DISPATCH_QUEUE_CONCURRENT)
+private let backgroundQueue = DispatchQueue(label: "com.runQueue.background", attributes: DispatchQueue.Attributes.concurrent)
 
 /**
  在主线程执行
  
  */
-public func runInMainThread(block:dispatch_block_t!){
-    if( NSThread.currentThread().isMainThread){
+public func runInMainThread(_ block:@escaping ()->()!){
+    if( Thread.current.isMainThread){
         block()
     }else{
-        dispatch_async(dispatch_get_main_queue(),block)
+        DispatchQueue.main.async(execute: block as! @convention(block) () -> Void)
     }
 }
 /**
  后台线程执行
  
  */
-public func runInBackgroundThread(block:dispatch_block_t!){
-    dispatch_async(backgroundQueue, block);
+public func runInBackgroundThread(_ block:@escaping ()->()!){
+    backgroundQueue.async(execute: block as! @convention(block) () -> Void);
 }
 
-public func synchronized(lock: AnyObject, closure: () -> ()) {
+public func synchronized(_ lock: AnyObject, closure: () -> ()) {
     objc_sync_enter(lock)
     closure()
     objc_sync_exit(lock)
 }
 
-public func delay(second:Double, closure:()->()) {
-    delay(second, queue: dispatch_get_main_queue(), closure: closure)
+public func delay(_ second:Double, closure:@escaping ()->()) {
+    delay(second, queue: DispatchQueue.main, closure: closure)
 }
-public func delay(second:Double,queue:dispatch_queue_t,closure:dispatch_block_t){
-    dispatch_after(
-        dispatch_time(
-            DISPATCH_TIME_NOW,
-            Int64(second*Double(NSEC_PER_SEC))
-        ),
-        queue,
-        closure)
+public func delay(_ second:Double,queue:DispatchQueue,closure:@escaping ()->()){
+    queue.asyncAfter(
+        deadline: DispatchTime.now() + Double(Int64(second*Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC),
+        execute: closure)
 }
 
-func resourseName(name:String) ->String {
+func resourseName(_ name:String) ->String {
     return "Frameworks/SwiftFrameWork.framework/" + name
 }
-func resoursePath(name:String) -> String {
-    return "\(NSBundle.mainBundle().bundlePath)/" + resourseName(name)
+func resoursePath(_ name:String) -> String {
+    return "\(Bundle.main.bundlePath)/" + resourseName(name)
 }
-public func printlen<T>(message: T,
+public func printlen<T>(_ message: T,
                      file: String = #file,
                      method: String = #function,
                      line: Int = #line) {
@@ -66,19 +62,19 @@ private let ServiceAccount = "DeviceUUID"
 
 ///获取设备唯一标识
 public func deviceIdentifier()->String {
-    if let uid =  SSKeychain.passwordForService(ServiceName, account: ServiceAccount) {
+    if let uid =  SSKeychain.password(forService: ServiceName, account: ServiceAccount) {
         return uid
     }
-    let newUUID = (UIDevice.currentDevice().identifierForVendor?.UUIDString ??  NSUUID().UUIDString).lowercaseString
+    let newUUID = (UIDevice.current.identifierForVendor?.uuidString ??  NSUUID().uuidString).lowercased()
     SSKeychain.setPassword(newUUID, forService: ServiceName, account: ServiceAccount)
     return newUUID
 }
 public func uuidString()->String {
-    return NSUUID().UUIDString.lowercaseString
+    return NSUUID().uuidString.lowercased()
 }
 
 
-public let ScreenSize   = UIScreen.mainScreen().bounds.size
-public let ScreenWidth  = UIScreen.mainScreen().bounds.size.width
-public let ScreenHeight = UIScreen.mainScreen().bounds.size.height
-public let ScreenBounds = UIScreen.mainScreen().bounds
+public let ScreenSize   = UIScreen.main.bounds.size
+public let ScreenWidth  = UIScreen.main.bounds.size.width
+public let ScreenHeight = UIScreen.main.bounds.size.height
+public let ScreenBounds = UIScreen.main.bounds
