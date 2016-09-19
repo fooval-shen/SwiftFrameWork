@@ -49,3 +49,62 @@ public enum NetworkShadeViewType:UInt{
     case NetworkError   = 2
 }
 ```
+* 使用方式
+```
+  extension PageContentViewController:ShadeViewProtocol {
+    public var containerView:UIView {
+        return self.view
+    }
+    public func networkFailureRefresh() {
+        
+    }
+  }
+  extension PageContentViewController{
+    private func loadData(offset:Int){
+        let parm:JSON = ["size":defatltNetworkSize,
+                         "offset":offset,
+                         "iGameId":self.categoryID]
+        networkGet(URLRoute.news.path, param: parm) {[weak self] (status, message, jsonValue) in
+            guard let strongSelf = self else {
+                return
+            }
+            guard let jsonValue = jsonValue  else {
+                runInMainThread({ 
+                    strongSelf.endRefresh()
+                })
+                return
+            }
+            
+            func changeModel(object:AnyObject)->ContentModel {
+                let model = ContentModel()
+                model.parse(object)
+                return model
+            }
+            if status == .Success {
+                if offset == 0 {
+                    strongSelf.dataSource.removeAll()
+                }
+                let array = jsonValue.arrayValue.map({changeModel($0.rawValue)})
+                strongSelf.dataSource.addFromArray(array)
+                if array.count < defatltNetworkSize {
+                    strongSelf.canLoadMore = false
+                } else {
+                    strongSelf.canLoadMore = true
+                }
+            }
+            runInMainThread({
+                strongSelf.endRefresh()
+                if offset == 0 {
+                    if strongSelf.dataSource.count > 0 {
+                       strongSelf.dismissShadeView()
+                    } else {
+                        strongSelf.showShadeView(.LoadingFailure)
+                    }                    
+                }
+                strongSelf.collectionView.reloadData()
+            })
+        }
+    }
+ }
+  
+```
