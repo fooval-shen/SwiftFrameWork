@@ -37,3 +37,15 @@ extension HeaderRefreshProtocol {
     }    
 }
 ```
+
+## ShadeViewProtocol 遮照层
+```
+public enum NetworkShadeViewType:UInt{
+    /// 数据正在加载
+    case Loading        = 0
+    /// 数据加载失败
+    case LoadingFailure = 1
+    /// 网络错误或没有网络
+    case NetworkError   = 2
+}
+```
