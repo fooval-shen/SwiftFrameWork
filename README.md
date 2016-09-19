@@ -37,7 +37,23 @@ extension HeaderRefreshProtocol {
     }    
 }
 ```
+ * 使用方式
 
+ ```
+extension PageContentViewController:HeaderRefreshProtocol {
+    public var refreshScrollView:UIScrollView {
+        return self.collectionView
+    }   
+    public func refreshAction() {
+       loadData(0)
+    }
+}
+public override func viewDidLoad() {
+    super.viewDidLoad()      
+    addRefreshView()        
+}
+
+ ```
 ## ShadeViewProtocol 遮照层
 ```
 public enum NetworkShadeViewType:UInt{
