@@ -1,6 +1,10 @@
 # SwiftFrameWork
 Swift 开发的基础库封装
 
+# Requirements
+ * Xcode 7+
+ * Swift 2.3
+
 # HeaderRefreshProtocol
  下拉刷新协议
 ```
