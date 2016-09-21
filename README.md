@@ -5,6 +5,14 @@ Swift 开发的基础库封装
  * Xcode 7+
  * Swift 2.3
 
+# Installation
+## CocoaPods
+
+```ruby
+ pod 'ZFPlayer'
+```
+
+
 # HeaderRefreshProtocol
  下拉刷新协议
 ```
