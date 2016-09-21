@@ -5,7 +5,12 @@ Swift 开发的基础库封装
  * Swift 3.0+
  * Xcode 8+
 
- 
+# Installation
+## CocoaPods
+
+```ruby
+ pod 'SwiftFrameWork',:git => 'https://github.com/shenfh/SwiftFrameWork.git',:branch=> 'swift3.0'
+``` 
 
 # HeaderRefreshProtocol
  下拉刷新协议
