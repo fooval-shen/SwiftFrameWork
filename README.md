@@ -14,7 +14,8 @@ Swift 开发的基础库封装
 
 # HeaderRefreshProtocol
  下拉刷新协议
-```
+
+```swift
 public protocol HeaderRefreshProtocol:class {
     var refreshScrollView:UIScrollView {get}
     func refreshAction()
@@ -50,7 +51,7 @@ extension HeaderRefreshProtocol {
 ```
  * 使用方式
 
- ```
+```swift
 extension PageContentViewController:HeaderRefreshProtocol {
     public var refreshScrollView:UIScrollView {
         return self.collectionView
@@ -66,7 +67,7 @@ public override func viewDidLoad() {
 
  ```
 ## ShadeViewProtocol 遮照层
-```
+```swift
 public enum NetworkShadeViewType:UInt{
     /// 数据正在加载
     case Loading        = 0
@@ -77,7 +78,7 @@ public enum NetworkShadeViewType:UInt{
 }
 ```
 * 使用方式
-```
+```swift
   extension PageContentViewController:ShadeViewProtocol {
     public var containerView:UIView {
         return self.view
@@ -138,7 +139,7 @@ public enum NetworkShadeViewType:UInt{
 
 ## HUDProtocol 提示框协议
 
-```
+```swift
 public protocol HUDProtocol:class {
     var containerView :UIView {get}
 }
@@ -192,7 +193,7 @@ extension HUDProtocol {
 
 ## CommonHeader 常用的一些函数
 
-```
+```swift
 /**
  在主线程执行
  
