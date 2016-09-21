@@ -9,7 +9,7 @@ Swift 开发的基础库封装
 ## CocoaPods
 
 ```ruby
- pod 'ZFPlayer'
+ pod 'SwiftFrameWork',:git => 'https://github.com/shenfh/SwiftFrameWork.git',:branch=> 'master'
 ```
 
 
