@@ -19,8 +19,7 @@ public protocol ViewControllerProtocol:class {
     func prepareData()
 }
 
-public extension ViewControllerProtocol where Self:UIViewController {
-    
+public extension ViewControllerProtocol where Self:UIViewController {   
     
     public func prepareUI(){
         if let navigationController = navigationController  {

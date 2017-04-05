@@ -8,6 +8,18 @@
 
 import UIKit
 import SwiftFrameWork
+
+extension UIButton:TouchExtensionProtocol {
+    open  override func point(inside point: CGPoint, with event: UIEvent?) -> Bool  {
+        var bounds = self.bounds
+        bounds.origin.x -= extendTouchInsets.left
+        bounds.origin.y -= extendTouchInsets.top
+        bounds.size.width += extendTouchInsets.left + extendTouchInsets.right
+        bounds.size.height += extendTouchInsets.top + extendTouchInsets.bottom
+        return bounds.contains(point)
+    }
+}
+
 class ViewController: BaseViewController {
 
     override func viewDidLoad() {
@@ -22,6 +34,7 @@ class ViewController: BaseViewController {
         rightNavButtonClosure = {void in
             printlen("rightNavButtonClosure")
         }
+        leftNavigationButton?.extendTouchInsets = UIEdgeInsetsMake(10, 0, 10, 200)
         // Do any additional setup after loading the view, typically from a nib.
     }
 

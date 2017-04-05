@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A190C521E10C9060053F3D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A190C511E10C9060053F3D3 /* ViewController.swift */; };
+		3A190C541E10CD720053F3D3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A190C531E10CD720053F3D3 /* String.swift */; };
+		3A190C561E10D0160053F3D3 /* NSURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A190C551E10D0160053F3D3 /* NSURL.swift */; };
 		3AD174AB1D77DE0E009BCC17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD174AA1D77DE0E009BCC17 /* AppDelegate.swift */; };
 		3AD174AD1D77DE0E009BCC17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD174AC1D77DE0E009BCC17 /* ViewController.swift */; };
 		3AD174B01D77DE0E009BCC17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD174AE1D77DE0E009BCC17 /* Main.storyboard */; };
@@ -18,8 +21,6 @@
 		3AD174E01D77DE4C009BCC17 /* SwiftFrameWorkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD174DF1D77DE4C009BCC17 /* SwiftFrameWorkTests.swift */; };
 		3AD174E41D77DE4C009BCC17 /* SwiftFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD174CF1D77DE4C009BCC17 /* SwiftFrameWork.framework */; };
 		3AD174E51D77DE4C009BCC17 /* SwiftFrameWork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD174CF1D77DE4C009BCC17 /* SwiftFrameWork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3AD176681D77FE2C009BCC17 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD1762C1D77FE2C009BCC17 /* BaseTableViewController.swift */; };
-		3AD176691D77FE2C009BCC17 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD1762D1D77FE2C009BCC17 /* BaseViewController.swift */; };
 		3AD1766A1D77FE2C009BCC17 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD1762F1D77FE2C009BCC17 /* BaseModel.swift */; };
 		3AD1766B1D77FE2C009BCC17 /* CommonHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD176301D77FE2C009BCC17 /* CommonHeader.swift */; };
 		3AD1766C1D77FE2C009BCC17 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD176321D77FE2C009BCC17 /* Color.swift */; };
@@ -62,6 +63,9 @@
 		3AD176941D77FE2C009BCC17 /* MQRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD176641D77FE2C009BCC17 /* MQRefreshHeaderView.m */; };
 		3AD176951D77FE2C009BCC17 /* MQRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD176651D77FE2C009BCC17 /* MQRefreshView.swift */; };
 		3AD176961D77FE2C009BCC17 /* WebKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD176671D77FE2C009BCC17 /* WebKitViewController.swift */; };
+		3ADC1B901E110DD8002B0CF2 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC1B8E1E110DD8002B0CF2 /* BaseTableViewController.swift */; };
+		3ADC1B911E110DD8002B0CF2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC1B8F1E110DD8002B0CF2 /* BaseViewController.swift */; };
+		3AF95B2E1E1BAF5C0033CB10 /* TouchExtensionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF95B2D1E1BAF5C0033CB10 /* TouchExtensionProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +114,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3A190C511E10C9060053F3D3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3A190C531E10CD720053F3D3 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		3A190C551E10D0160053F3D3 /* NSURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURL.swift; sourceTree = "<group>"; };
 		3AD174A71D77DE0E009BCC17 /* SwiftExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD174AA1D77DE0E009BCC17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AD174AC1D77DE0E009BCC17 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -126,8 +133,6 @@
 		3AD174D81D77DE4C009BCC17 /* SwiftFrameWorkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftFrameWorkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD174DF1D77DE4C009BCC17 /* SwiftFrameWorkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFrameWorkTests.swift; sourceTree = "<group>"; };
 		3AD174E11D77DE4C009BCC17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3AD1762C1D77FE2C009BCC17 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
-		3AD1762D1D77FE2C009BCC17 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3AD1762F1D77FE2C009BCC17 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		3AD176301D77FE2C009BCC17 /* CommonHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonHeader.swift; sourceTree = "<group>"; };
 		3AD176321D77FE2C009BCC17 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -170,6 +175,9 @@
 		3AD176641D77FE2C009BCC17 /* MQRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQRefreshHeaderView.m; sourceTree = "<group>"; };
 		3AD176651D77FE2C009BCC17 /* MQRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQRefreshView.swift; sourceTree = "<group>"; };
 		3AD176671D77FE2C009BCC17 /* WebKitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebKitViewController.swift; sourceTree = "<group>"; };
+		3ADC1B8E1E110DD8002B0CF2 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		3ADC1B8F1E110DD8002B0CF2 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		3AF95B2D1E1BAF5C0033CB10 /* TouchExtensionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchExtensionProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,18 +295,10 @@
 		3AD1762A1D77FE2C009BCC17 /* BaseViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3AD1762B1D77FE2C009BCC17 /* MQBaseViewController */,
+				3ADC1B8E1E110DD8002B0CF2 /* BaseTableViewController.swift */,
+				3ADC1B8F1E110DD8002B0CF2 /* BaseViewController.swift */,
 			);
 			path = BaseViewController;
-			sourceTree = "<group>";
-		};
-		3AD1762B1D77FE2C009BCC17 /* MQBaseViewController */ = {
-			isa = PBXGroup;
-			children = (
-				3AD1762C1D77FE2C009BCC17 /* BaseTableViewController.swift */,
-				3AD1762D1D77FE2C009BCC17 /* BaseViewController.swift */,
-			);
-			path = MQBaseViewController;
 			sourceTree = "<group>";
 		};
 		3AD1762E1D77FE2C009BCC17 /* Common */ = {
@@ -315,6 +315,9 @@
 			children = (
 				3AD176321D77FE2C009BCC17 /* Color.swift */,
 				3AD176331D77FE2C009BCC17 /* SafeArray.swift */,
+				3A190C511E10C9060053F3D3 /* ViewController.swift */,
+				3A190C531E10CD720053F3D3 /* String.swift */,
+				3A190C551E10D0160053F3D3 /* NSURL.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				3AD176421D77FE2C009BCC17 /* RefreshProtocol.swift */,
 				3AD176431D77FE2C009BCC17 /* ShadeViewProtocol.swift */,
 				3AD176441D77FE2C009BCC17 /* ViewControllerProtocol.swift */,
+				3AF95B2D1E1BAF5C0033CB10 /* TouchExtensionProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -553,6 +557,7 @@
 				TargetAttributes = {
 					3AD174A61D77DE0E009BCC17 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 38U7FJ9TRU;
 						LastSwiftMigration = 0800;
 					};
 					3AD174BA1D77DE0E009BCC17 = {
@@ -562,7 +567,9 @@
 					};
 					3AD174CE1D77DE4C009BCC17 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 38U7FJ9TRU;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 					};
 					3AD174D71D77DE4C009BCC17 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -655,16 +662,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AD176881D77FE2C009BCC17 /* UIScrollView+MJExtension.m in Sources */,
+				3A190C561E10D0160053F3D3 /* NSURL.swift in Sources */,
 				3AD176951D77FE2C009BCC17 /* MQRefreshView.swift in Sources */,
+				3AF95B2E1E1BAF5C0033CB10 /* TouchExtensionProtocol.swift in Sources */,
 				3AD176941D77FE2C009BCC17 /* MQRefreshHeaderView.m in Sources */,
 				3AD176701D77FE2C009BCC17 /* DeviceVersion.swift in Sources */,
 				3AD176771D77FE2C009BCC17 /* HUDProtocol.swift in Sources */,
 				3AD1766A1D77FE2C009BCC17 /* BaseModel.swift in Sources */,
-				3AD176681D77FE2C009BCC17 /* BaseTableViewController.swift in Sources */,
 				3AD176901D77FE2C009BCC17 /* MQActivityIndicatorView.m in Sources */,
 				3AD176861D77FE2C009BCC17 /* MJRefreshConst.m in Sources */,
 				3AD1767A1D77FE2C009BCC17 /* ViewControllerProtocol.swift in Sources */,
-				3AD176691D77FE2C009BCC17 /* BaseViewController.swift in Sources */,
+				3ADC1B901E110DD8002B0CF2 /* BaseTableViewController.swift in Sources */,
 				3AD1766C1D77FE2C009BCC17 /* Color.swift in Sources */,
 				3AD176741D77FE2C009BCC17 /* SSKeychain.m in Sources */,
 				3AD1768A1D77FE2C009BCC17 /* UIScrollView+MJRefresh.m in Sources */,
@@ -672,14 +680,17 @@
 				3AD1768E1D77FE2C009BCC17 /* MQActivityIndicatorAnimation.m in Sources */,
 				3AD1768C1D77FE2C009BCC17 /* UIView+MJExtension.m in Sources */,
 				3AD176841D77FE2C009BCC17 /* MJRefreshComponent.m in Sources */,
+				3A190C541E10CD720053F3D3 /* String.swift in Sources */,
 				3AD176921D77FE2C009BCC17 /* MQRefreshFooterView.m in Sources */,
 				3AD176791D77FE2C009BCC17 /* ShadeViewProtocol.swift in Sources */,
 				3AD176761D77FE2C009BCC17 /* SSKeychainQuery.m in Sources */,
+				3A190C521E10C9060053F3D3 /* ViewController.swift in Sources */,
 				3AD1766D1D77FE2C009BCC17 /* SafeArray.swift in Sources */,
 				3AD176821D77FE2C009BCC17 /* NetworkShadeView.swift in Sources */,
 				3AD176781D77FE2C009BCC17 /* RefreshProtocol.swift in Sources */,
 				3AD1766B1D77FE2C009BCC17 /* CommonHeader.swift in Sources */,
 				3AD176721D77FE2C009BCC17 /* MBProgressHUD.m in Sources */,
+				3ADC1B911E110DD8002B0CF2 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -831,6 +842,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 38U7FJ9TRU;
 				INFOPLIST_FILE = SwiftExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shenfh.SwiftExample;
@@ -844,6 +856,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 38U7FJ9TRU;
 				INFOPLIST_FILE = SwiftExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shenfh.SwiftExample;
@@ -881,9 +894,10 @@
 		3AD174E71D77DE4D009BCC17 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 38U7FJ9TRU;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -903,9 +917,10 @@
 		3AD174E81D77DE4D009BCC17 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 38U7FJ9TRU;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
