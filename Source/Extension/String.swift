@@ -60,26 +60,10 @@ public extension String {
         let regex = try? NSRegularExpression(pattern: "\\w+", options: NSRegularExpression.Options())
         return regex?.numberOfMatches(in: self, options: NSRegularExpression.MatchingOptions(), range: NSRange(location: 0, length: self.length)) ?? 0
     }
-    public var isEmail: Bool {      
-        return matches(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}")
-    }
-   
-    public func isNumber() -> Bool {
-        if let _ = NumberFormatter().number(from: self) {
-            return true
-        }
-        return false
-    }
-    
-    func matches(pattern: String) -> Bool {
-        return range(of: pattern,
-                     options: String.CompareOptions.regularExpression,
-                     range: nil, locale: nil) != nil
-    }
 }
 
 public extension String {
-    init ? (base64: String) {
+    public init ? (base64: String) {
         let pad = String(repeating: "=", count: base64.length % 4)
         let base64Padded = base64 + pad
         if let decodedData = Data(base64Encoded: base64Padded, options: NSData.Base64DecodingOptions(rawValue: 0)), let decodedString = NSString(data: decodedData, encoding: String.Encoding.utf8.rawValue) {
@@ -89,11 +73,11 @@ public extension String {
         return nil
     }
     
-    var base64: String {
+    public var base64: String {
         let plainData = (self as NSString).data(using: String.Encoding.utf8.rawValue)
         let base64String = plainData!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         return base64String
-    }
+    }  
     
     public func urlEncoded() -> String {
         return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
@@ -160,12 +144,58 @@ public extension String {
             paragraphStyle.lineBreakMode = lineBreakMode!
             attrib.updateValue(paragraphStyle, forKey: NSParagraphStyleAttributeName)
         }
-        let size = CGSize(width: width, height: CGFloat(DBL_MAX))
+        let size = CGSize(width: width, height: .greatestFiniteMagnitude)
         return ceil((self as NSString).boundingRect(with: size, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes:attrib, context: nil).height)
     }
     
     public func copyToPasteboard() {
         let pasteboard = UIPasteboard.general
         pasteboard.string = self
+    }
+}
+
+public extension String {
+    public static var documentsDirectory:String {
+        return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+    }
+    
+    public static var cachesDirectory:String {
+        return NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first!
+    }
+    
+    public static var temporaryDirectory:String {
+        return NSTemporaryDirectory()
+    }
+    
+    public static var homeDirectory:String {
+        return NSHomeDirectory()
+    }
+}
+
+
+public extension String {
+    public var isEmail: Bool {
+        return matches(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}")
+    }
+    
+    public var isQQNumber:Bool {
+        return matches(pattern: "[1-9]{1}+[0-9]{4,19}")
+    }
+    
+    public var isPhoneNumber:Bool {
+        return matches(pattern: "^1[34578]\\d{9}$")
+    }
+
+    public func isNumber() -> Bool {
+        if let _ = NumberFormatter().number(from: self) {
+            return true
+        }
+        return false
+    }
+    
+    func matches(pattern: String) -> Bool {
+        return range(of: pattern,
+                     options: String.CompareOptions.regularExpression,
+                     range: nil, locale: nil) != nil
     }
 }

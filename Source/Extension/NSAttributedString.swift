@@ -31,3 +31,18 @@ public extension NSAttributedString {
         return copy
     }
 }
+public extension NSAttributedString {
+   // from: http://stackoverflow.com/questions/30450434/figure-out-size-of-uilabel-based-on-string-in-swift
+    func height(withConstrainedWidth width: CGFloat) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, context: nil)
+        
+        return CGFloat(ceilf( Float(boundingBox.height)))
+    }
+    
+    func width(withConstrainedHeight height: CGFloat) -> CGFloat {
+        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
+        let boundingBox = boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, context: nil)        
+        return CGFloat(ceilf( Float(boundingBox.width)))
+    }
+}
