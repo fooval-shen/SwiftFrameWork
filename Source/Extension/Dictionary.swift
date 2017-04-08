@@ -18,4 +18,12 @@ public extension Dictionary {
     public func has(key: Key) -> Bool {
         return index(forKey: key) != nil
     }
+    
+    public func toJSONString() -> String? {
+        if let jsonData = try? JSONSerialization.data(withJSONObject: self, options: JSONSerialization.WritingOptions()) {
+            let jsonStr = String(data: jsonData, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
+            return String(jsonStr ?? "")
+        }
+        return nil
+    }
 }

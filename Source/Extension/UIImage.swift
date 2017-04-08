@@ -79,9 +79,63 @@ public extension UIImage {
         return finalImage ?? self
     }
     
+    public class func scaleTo(image: UIImage, w: CGFloat, h: CGFloat) -> UIImage {
+        let newSize = CGSize(width: w, height: h)
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+        image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+    
+    public func resizeWithWidth(_ width: CGFloat) -> UIImage {
+        let aspectSize = CGSize (width: width, height: aspectHeightForWidth(width))
+        
+        UIGraphicsBeginImageContext(aspectSize)
+        self.draw(in: CGRect(origin: CGPoint.zero, size: aspectSize))
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return img!
+    }
+   
+    public func resizeWithHeight(_ height: CGFloat) -> UIImage {
+        let aspectSize = CGSize (width: aspectWidthForHeight(height), height: height)
+        
+        UIGraphicsBeginImageContext(aspectSize)
+        self.draw(in: CGRect(origin: CGPoint.zero, size: aspectSize))
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return img!
+    }
+  
+    public func aspectHeightForWidth(_ width: CGFloat) -> CGFloat {
+        return (width * self.size.height) / self.size.width
+    }
+   
+    public func aspectWidthForHeight(_ height: CGFloat) -> CGFloat {
+        return (height * self.size.width) / self.size.height
+    }
+    
+    
+    /// 截取图片
+    public func croppedImage(_ bound: CGRect) -> UIImage? {
+        guard self.size.width > bound.origin.x else {
+            print("EZSE: Your cropping X coordinate is larger than the image width")
+            return nil
+        }
+        guard self.size.height > bound.origin.y else {
+            print("EZSE: Your cropping Y coordinate is larger than the image height")
+            return nil
+        }
+        let scaledBounds: CGRect = CGRect(x: bound.origin.x * self.scale, y: bound.origin.y * self.scale, width: bound.size.width * self.scale, height: bound.size.height * self.scale)
+        let imageRef = self.cgImage?.cropping(to: scaledBounds)
+        let croppedImage: UIImage = UIImage(cgImage: imageRef!, scale: self.scale, orientation: UIImageOrientation.up)
+        return croppedImage
+    }
 }
 
-// MARK: RenderingMode
 
 public extension UIImage {
     
@@ -93,4 +147,11 @@ public extension UIImage {
         return withRenderingMode(.alwaysTemplate)
     }
     
+    public func compressImage(rate: CGFloat) -> Data? {
+        return UIImageJPEGRepresentation(self, rate)
+    }
+    
+    public func getSizeAsBytes() -> Int {
+        return UIImageJPEGRepresentation(self, 1)?.count ?? 0
+    }
 }

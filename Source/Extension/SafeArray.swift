@@ -8,6 +8,18 @@
 
 import Foundation
 
+
+public func ==<T: Equatable>(lhs: [T]?, rhs: [T]?) -> Bool {
+    switch (lhs, rhs) {
+    case (.some(let lhs), .some(let rhs)):
+        return lhs == rhs
+    case (.none, .none):
+        return true
+    default:
+        return false
+    }
+}
+
 public extension NSArray{
     public func objectAtIndex(safe index: Int) -> Element?{
         guard index >= 0 else {return nil}
@@ -55,6 +67,19 @@ public extension Array {
         }
         let index = Int(arc4random_uniform(UInt32(self.count)))
         return self[index]
+    }
+    
+}
+public extension Array where Element:Equatable {
+    public func unique() -> [Element] {
+        
+        var array: [Element] = []
+        
+        for element in self where !array.contains(element) {
+            array.append(element)
+        }
+        
+        return array
     }
 }
 
