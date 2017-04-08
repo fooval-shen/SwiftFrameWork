@@ -1,6 +1,6 @@
 //
 //  DeviceVersion.swift
-//  meiqu
+//  SwiftFrameWork
 //
 //  Created by shenfh on 16/6/29.
 //  Copyright © 2016年 com.meiqu.com. All rights reserved.

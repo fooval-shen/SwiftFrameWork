@@ -1,6 +1,6 @@
 //
 //  Color.swift
-//  News
+//  SwiftFrameWork
 //
 //  Created by shenfh on 16/8/9.
 //  Copyright © 2016年 shenfh. All rights reserved.

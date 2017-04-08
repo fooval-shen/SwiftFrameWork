@@ -1,6 +1,6 @@
 //
 //  SafeArray.swift
-//  meiqu
+//  SwiftFrameWork
 //
 //  Created by shenfh on 16/1/29.
 //  Copyright © 2016年 com.meiqu.com. All rights reserved.
@@ -8,29 +8,25 @@
 
 import Foundation
 
-extension NSArray{
-    public func objectAtIndex(safe index: Int) -> AnyObject?{
+public extension NSArray{
+    public func objectAtIndex(safe index: Int) -> Element?{
         guard index >= 0 else {return nil}
         guard index < count else { return nil}
-        return self.object(at: index) as AnyObject?
-        
+        return self.object(at: index)
     }
 }
 
-extension Array {
+public extension Array {
     public subscript (safe index: Int) -> Element? {
         get{
-            if count == 0 || index >= count || index < 0 {
-                return nil
-            }
-            return self[index]
+          return indices.contains(index) ? self[index] : nil
         }
         set {
             if let value = newValue {
-                if index >= count || index < 0 {
-                   self.append(value)
-                } else {
+                if indices.contains(index) {
                     self[index] = value
+                } else {
+                    self.append(value)
                 }
             }
         }
@@ -51,7 +47,15 @@ extension Array {
     public mutating func removeAtIndex(safe index:Int) {
         guard index < count else{return}
         self.remove(at: index)
-    }    
+    }
+    
+    public func random() -> Element? {
+        guard isEmpty == false else {
+            return nil
+        }
+        let index = Int(arc4random_uniform(UInt32(self.count)))
+        return self[index]
+    }
 }
 
 extension Dictionary {

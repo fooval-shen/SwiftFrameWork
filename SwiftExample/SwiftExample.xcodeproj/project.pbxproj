@@ -10,6 +10,12 @@
 		3A190C521E10C9060053F3D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A190C511E10C9060053F3D3 /* ViewController.swift */; };
 		3A190C541E10CD720053F3D3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A190C531E10CD720053F3D3 /* String.swift */; };
 		3A190C561E10D0160053F3D3 /* NSURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A190C551E10D0160053F3D3 /* NSURL.swift */; };
+		3ABCE3D21E9877D1000517E8 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABCE3D11E9877D1000517E8 /* Dictionary.swift */; };
+		3ABCE3D61E98783F000517E8 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABCE3D51E98783F000517E8 /* FileManager.swift */; };
+		3ABCE3D81E98794E000517E8 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABCE3D71E98794E000517E8 /* Bundle.swift */; };
+		3ABCE3DA1E987A4D000517E8 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABCE3D91E987A4D000517E8 /* UIImage.swift */; };
+		3ABCE3DC1E987AD2000517E8 /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABCE3DB1E987AD2000517E8 /* UIScreen.swift */; };
+		3ABCE3DE1E987B74000517E8 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABCE3DD1E987B74000517E8 /* UIView.swift */; };
 		3AD174AB1D77DE0E009BCC17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD174AA1D77DE0E009BCC17 /* AppDelegate.swift */; };
 		3AD174AD1D77DE0E009BCC17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD174AC1D77DE0E009BCC17 /* ViewController.swift */; };
 		3AD174B01D77DE0E009BCC17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD174AE1D77DE0E009BCC17 /* Main.storyboard */; };
@@ -117,6 +123,12 @@
 		3A190C511E10C9060053F3D3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3A190C531E10CD720053F3D3 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		3A190C551E10D0160053F3D3 /* NSURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURL.swift; sourceTree = "<group>"; };
+		3ABCE3D11E9877D1000517E8 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		3ABCE3D51E98783F000517E8 /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		3ABCE3D71E98794E000517E8 /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		3ABCE3D91E987A4D000517E8 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		3ABCE3DB1E987AD2000517E8 /* UIScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScreen.swift; sourceTree = "<group>"; };
+		3ABCE3DD1E987B74000517E8 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		3AD174A71D77DE0E009BCC17 /* SwiftExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD174AA1D77DE0E009BCC17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AD174AC1D77DE0E009BCC17 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -318,6 +330,12 @@
 				3A190C511E10C9060053F3D3 /* ViewController.swift */,
 				3A190C531E10CD720053F3D3 /* String.swift */,
 				3A190C551E10D0160053F3D3 /* NSURL.swift */,
+				3ABCE3D11E9877D1000517E8 /* Dictionary.swift */,
+				3ABCE3D51E98783F000517E8 /* FileManager.swift */,
+				3ABCE3D71E98794E000517E8 /* Bundle.swift */,
+				3ABCE3D91E987A4D000517E8 /* UIImage.swift */,
+				3ABCE3DB1E987AD2000517E8 /* UIScreen.swift */,
+				3ABCE3DD1E987B74000517E8 /* UIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -668,19 +686,25 @@
 				3AD176941D77FE2C009BCC17 /* MQRefreshHeaderView.m in Sources */,
 				3AD176701D77FE2C009BCC17 /* DeviceVersion.swift in Sources */,
 				3AD176771D77FE2C009BCC17 /* HUDProtocol.swift in Sources */,
+				3ABCE3D61E98783F000517E8 /* FileManager.swift in Sources */,
 				3AD1766A1D77FE2C009BCC17 /* BaseModel.swift in Sources */,
 				3AD176901D77FE2C009BCC17 /* MQActivityIndicatorView.m in Sources */,
 				3AD176861D77FE2C009BCC17 /* MJRefreshConst.m in Sources */,
 				3AD1767A1D77FE2C009BCC17 /* ViewControllerProtocol.swift in Sources */,
+				3ABCE3D21E9877D1000517E8 /* Dictionary.swift in Sources */,
 				3ADC1B901E110DD8002B0CF2 /* BaseTableViewController.swift in Sources */,
 				3AD1766C1D77FE2C009BCC17 /* Color.swift in Sources */,
 				3AD176741D77FE2C009BCC17 /* SSKeychain.m in Sources */,
+				3ABCE3DE1E987B74000517E8 /* UIView.swift in Sources */,
 				3AD1768A1D77FE2C009BCC17 /* UIScrollView+MJRefresh.m in Sources */,
 				3AD176961D77FE2C009BCC17 /* WebKitViewController.swift in Sources */,
 				3AD1768E1D77FE2C009BCC17 /* MQActivityIndicatorAnimation.m in Sources */,
+				3ABCE3DC1E987AD2000517E8 /* UIScreen.swift in Sources */,
+				3ABCE3D81E98794E000517E8 /* Bundle.swift in Sources */,
 				3AD1768C1D77FE2C009BCC17 /* UIView+MJExtension.m in Sources */,
 				3AD176841D77FE2C009BCC17 /* MJRefreshComponent.m in Sources */,
 				3A190C541E10CD720053F3D3 /* String.swift in Sources */,
+				3ABCE3DA1E987A4D000517E8 /* UIImage.swift in Sources */,
 				3AD176921D77FE2C009BCC17 /* MQRefreshFooterView.m in Sources */,
 				3AD176791D77FE2C009BCC17 /* ShadeViewProtocol.swift in Sources */,
 				3AD176761D77FE2C009BCC17 /* SSKeychainQuery.m in Sources */,

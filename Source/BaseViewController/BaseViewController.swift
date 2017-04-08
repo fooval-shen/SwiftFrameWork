@@ -19,6 +19,11 @@ open class BaseViewController:UIViewController,ViewControllerProtocol {
         prepareUI()
         prepareData()
     }
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
+        navigationController?.setNavigationBarHidden(navigationBarHidden, animated: animated)
+    }
+    
     open func prepareUI() {
         if let navigationController = navigationController  {
             if(navigationController.viewControllers.count > 1) {
@@ -59,6 +64,6 @@ open class BaseViewController:UIViewController,ViewControllerProtocol {
     
     open var leftNavButtonClosure: NavigationClosure?
     open var rightNavButtonClosure: NavigationClosure?
-    
+    open var navigationBarHidden :Bool = false
    
 }
