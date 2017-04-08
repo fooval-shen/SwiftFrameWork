@@ -14,7 +14,7 @@ public protocol HUDProtocol:class {
     var containerView :UIView {get}
 }
 
-extension HUDProtocol {
+public extension HUDProtocol {
     
     public func showMessage(_ message:String,delay:TimeInterval = 2){
         hudViewModel       = .text
