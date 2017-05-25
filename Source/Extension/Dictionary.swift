@@ -19,6 +19,12 @@ public extension Dictionary {
         return index(forKey: key) != nil
     }
     
+    public mutating func updateFrom(dic:Dictionary){
+        for (k,v) in dic {
+           self[k] = v
+        }
+    }
+    
     public func toJSONString() -> String? {
         if let jsonData = try? JSONSerialization.data(withJSONObject: self, options: JSONSerialization.WritingOptions()) {
             let jsonStr = String(data: jsonData, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))

@@ -54,7 +54,7 @@ public extension ViewControllerProtocol where Self:UIViewController {
         }
         setLeftBarButton(button)
     }
-    public func leftNavigationButton(_ text:NSAttributedString,font:UIFont = UIFont.systemFont(ofSize: 16)){
+    public func leftNavigationButton(_ text:NSAttributedString){
         if leftNavigationButton != nil {
             leftNavigationButton = nil
         }
@@ -171,4 +171,6 @@ public extension ViewControllerProtocol where Self:UIViewController {
         }
     }   
 }
+
+
 

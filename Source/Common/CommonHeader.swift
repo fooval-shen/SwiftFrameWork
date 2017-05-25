@@ -73,8 +73,15 @@ public func uuidString()->String {
     return NSUUID().uuidString.lowercased()
 }
 
-
+// MARK:- Screen
 public let ScreenSize   = UIScreen.main.bounds.size
 public let ScreenWidth  = UIScreen.main.bounds.size.width
 public let ScreenHeight = UIScreen.main.bounds.size.height
 public let ScreenBounds = UIScreen.main.bounds
+
+// MARK:- Closure
+public typealias Closure = () -> Void
+public typealias ClosureWithSender = (_ sender:Any?) -> Void
+
+
+

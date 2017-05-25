@@ -27,6 +27,7 @@
 		3ABCE3E01E987F49000517E8 /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABCE3DF1E987F49000517E8 /* NSAttributedString.swift */; };
 		3ABCE3E21E987FE5000517E8 /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABCE3E11E987FE5000517E8 /* NSObject.swift */; };
 		3ABCE3E41E988262000517E8 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABCE3E31E988262000517E8 /* Timer.swift */; };
+		3ACCA1F61EC2C35C00B6FADE /* TableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACCA1F51EC2C35C00B6FADE /* TableViewProtocol.swift */; };
 		3AD174AB1D77DE0E009BCC17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD174AA1D77DE0E009BCC17 /* AppDelegate.swift */; };
 		3AD174AD1D77DE0E009BCC17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD174AC1D77DE0E009BCC17 /* ViewController.swift */; };
 		3AD174B01D77DE0E009BCC17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD174AE1D77DE0E009BCC17 /* Main.storyboard */; };
@@ -43,8 +44,6 @@
 		3AD1766C1D77FE2C009BCC17 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD176321D77FE2C009BCC17 /* Color.swift */; };
 		3AD1766D1D77FE2C009BCC17 /* SafeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD176331D77FE2C009BCC17 /* SafeArray.swift */; };
 		3AD176701D77FE2C009BCC17 /* DeviceVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD176371D77FE2C009BCC17 /* DeviceVersion.swift */; };
-		3AD176711D77FE2C009BCC17 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AD176391D77FE2C009BCC17 /* MBProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3AD176721D77FE2C009BCC17 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD1763A1D77FE2C009BCC17 /* MBProgressHUD.m */; };
 		3AD176731D77FE2C009BCC17 /* SSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AD1763C1D77FE2C009BCC17 /* SSKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AD176741D77FE2C009BCC17 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD1763D1D77FE2C009BCC17 /* SSKeychain.m */; };
 		3AD176751D77FE2C009BCC17 /* SSKeychainQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AD1763E1D77FE2C009BCC17 /* SSKeychainQuery.h */; };
@@ -82,6 +81,7 @@
 		3AD176961D77FE2C009BCC17 /* WebKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD176671D77FE2C009BCC17 /* WebKitViewController.swift */; };
 		3ADC1B901E110DD8002B0CF2 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC1B8E1E110DD8002B0CF2 /* BaseTableViewController.swift */; };
 		3ADC1B911E110DD8002B0CF2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC1B8F1E110DD8002B0CF2 /* BaseViewController.swift */; };
+		3ADF80151ED426130046B464 /* UIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF80141ED426130046B464 /* UIControl.swift */; };
 		3AF95B2E1E1BAF5C0033CB10 /* TouchExtensionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF95B2D1E1BAF5C0033CB10 /* TouchExtensionProtocol.swift */; };
 		47FEB31F41FDD2BB05B28656 /* Pods_SwiftFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 810EE7FFA5C242327C584370 /* Pods_SwiftFrameWork.framework */; };
 		D2EB8B54B3E947835B81F83A /* Pods_SwiftExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36BC0A06D0747A5EE68F123B /* Pods_SwiftExample.framework */; };
@@ -154,6 +154,7 @@
 		3ABCE3DF1E987F49000517E8 /* NSAttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		3ABCE3E11E987FE5000517E8 /* NSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
 		3ABCE3E31E988262000517E8 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		3ACCA1F51EC2C35C00B6FADE /* TableViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewProtocol.swift; sourceTree = "<group>"; };
 		3AD174A71D77DE0E009BCC17 /* SwiftExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD174AA1D77DE0E009BCC17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AD174AC1D77DE0E009BCC17 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -175,8 +176,6 @@
 		3AD176321D77FE2C009BCC17 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		3AD176331D77FE2C009BCC17 /* SafeArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeArray.swift; sourceTree = "<group>"; };
 		3AD176371D77FE2C009BCC17 /* DeviceVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceVersion.swift; sourceTree = "<group>"; };
-		3AD176391D77FE2C009BCC17 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		3AD1763A1D77FE2C009BCC17 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		3AD1763C1D77FE2C009BCC17 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		3AD1763D1D77FE2C009BCC17 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		3AD1763E1D77FE2C009BCC17 /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
@@ -214,6 +213,7 @@
 		3AD176671D77FE2C009BCC17 /* WebKitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebKitViewController.swift; sourceTree = "<group>"; };
 		3ADC1B8E1E110DD8002B0CF2 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		3ADC1B8F1E110DD8002B0CF2 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		3ADF80141ED426130046B464 /* UIControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControl.swift; sourceTree = "<group>"; };
 		3AF95B2D1E1BAF5C0033CB10 /* TouchExtensionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchExtensionProtocol.swift; sourceTree = "<group>"; };
 		7C3FD1E5830A6BB3CF744338 /* Pods-SwiftExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftExample/Pods-SwiftExample.debug.xcconfig"; sourceTree = "<group>"; };
 		810EE7FFA5C242327C584370 /* Pods_SwiftFrameWork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftFrameWork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -425,6 +425,7 @@
 				3A6534681E988415002A098B /* UIDevice.swift */,
 				3A65346A1E9889C0002A098B /* CGRect.swift */,
 				3A65346C1E988B45002A098B /* CALayer.swift */,
+				3ADF80141ED426130046B464 /* UIControl.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -433,19 +434,9 @@
 			isa = PBXGroup;
 			children = (
 				3AD176371D77FE2C009BCC17 /* DeviceVersion.swift */,
-				3AD176381D77FE2C009BCC17 /* MBProgressHUD */,
 				3AD1763B1D77FE2C009BCC17 /* SSKeychain */,
 			);
 			path = Other;
-			sourceTree = "<group>";
-		};
-		3AD176381D77FE2C009BCC17 /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				3AD176391D77FE2C009BCC17 /* MBProgressHUD.h */,
-				3AD1763A1D77FE2C009BCC17 /* MBProgressHUD.m */,
-			);
-			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		3AD1763B1D77FE2C009BCC17 /* SSKeychain */ = {
@@ -467,6 +458,7 @@
 				3AD176431D77FE2C009BCC17 /* ShadeViewProtocol.swift */,
 				3AD176441D77FE2C009BCC17 /* ViewControllerProtocol.swift */,
 				3AF95B2D1E1BAF5C0033CB10 /* TouchExtensionProtocol.swift */,
+				3ACCA1F51EC2C35C00B6FADE /* TableViewProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -561,7 +553,6 @@
 			files = (
 				3AD176831D77FE2C009BCC17 /* MJRefreshComponent.h in Headers */,
 				3AD176731D77FE2C009BCC17 /* SSKeychain.h in Headers */,
-				3AD176711D77FE2C009BCC17 /* MBProgressHUD.h in Headers */,
 				3AD176931D77FE2C009BCC17 /* MQRefreshHeaderView.h in Headers */,
 				3AD176891D77FE2C009BCC17 /* UIScrollView+MJRefresh.h in Headers */,
 				3AD1768B1D77FE2C009BCC17 /* UIView+MJExtension.h in Headers */,
@@ -867,6 +858,7 @@
 				3A65346D1E988B45002A098B /* CALayer.swift in Sources */,
 				3AD176901D77FE2C009BCC17 /* MQActivityIndicatorView.m in Sources */,
 				3AD176861D77FE2C009BCC17 /* MJRefreshConst.m in Sources */,
+				3ACCA1F61EC2C35C00B6FADE /* TableViewProtocol.swift in Sources */,
 				3AADDAA51EB079CA00F790BC /* CAShapeLayer.swift in Sources */,
 				3A65346B1E9889C0002A098B /* CGRect.swift in Sources */,
 				3AD1767A1D77FE2C009BCC17 /* ViewControllerProtocol.swift in Sources */,
@@ -891,12 +883,12 @@
 				3AD176761D77FE2C009BCC17 /* SSKeychainQuery.m in Sources */,
 				3A190C521E10C9060053F3D3 /* ViewController.swift in Sources */,
 				3AD1766D1D77FE2C009BCC17 /* SafeArray.swift in Sources */,
+				3ADF80151ED426130046B464 /* UIControl.swift in Sources */,
 				3AD176821D77FE2C009BCC17 /* NetworkShadeView.swift in Sources */,
 				3A6534671E988340002A098B /* UIButton.swift in Sources */,
 				3AD176781D77FE2C009BCC17 /* RefreshProtocol.swift in Sources */,
 				3AADDAA31EB0794000F790BC /* CAKeyframeAnimation.swift in Sources */,
 				3AD1766B1D77FE2C009BCC17 /* CommonHeader.swift in Sources */,
-				3AD176721D77FE2C009BCC17 /* MBProgressHUD.m in Sources */,
 				3ADC1B911E110DD8002B0CF2 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -135,4 +135,5 @@ Pod::Spec.new do |s|
 
   s.dependency  "CryptoSwift"
   s.dependency  "SwiftIconFont"
+  s.dependency  "MBProgressHUD"
 end

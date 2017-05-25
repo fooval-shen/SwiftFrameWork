@@ -51,6 +51,7 @@ public extension Array {
         }
     }
     
+    
     public mutating func resetByArray(_ array:[Element]) {
         removeAll()
         addFromArray(array)

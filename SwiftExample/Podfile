@@ -8,4 +8,5 @@ end
 
 target 'SwiftFrameWork' do
     pod 'CryptoSwift'
+    pod 'MBProgressHUD'
 end

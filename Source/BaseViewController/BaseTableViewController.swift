@@ -34,6 +34,9 @@ open class BaseTableViewController: BaseViewController {
         }
         self.xibTableView?.scrollsToTop = true
         
+        if tableViewStyle == .grouped && self.tableView.tableFooterView == nil {
+            self.tableView.tableFooterView = UIView()
+        }
     }
     deinit {
         self.xibTableView?.delegate = nil
@@ -67,14 +70,14 @@ open class BaseTableViewController: BaseViewController {
 
 // MARK: - UITableViewDataSource
 extension BaseTableViewController:UITableViewDataSource {
-    public func numberOfSections(in tableView: UITableView) -> Int {
+    open func numberOfSections(in tableView: UITableView) -> Int {
         return 1;
     }
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
     }
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell();
     }
 }
@@ -82,29 +85,29 @@ extension BaseTableViewController:UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension BaseTableViewController:UITableViewDelegate {
     
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true);
     }
     
-    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
+    open func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
         let dataCount = dataSource.count
         if(self.canLoadMore && (indexPath as NSIndexPath).row >= dataCount-5 && dataCount >= 5){
             autoLoadMore();
         }
     }
     
-    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 1.0;
+    open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude;
     }
     
-    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 1.0;
+    open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude;
     }
     
-    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return nil;
     }
-    public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    open func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return nil;
     }
 
