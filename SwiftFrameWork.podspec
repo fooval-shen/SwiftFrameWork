@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SwiftFrameWork"
-  s.version      = "1.0"
+  s.version      = "2.0"
   s.summary      = "Swif 开发基础库."
 
   # This description is used to generate tags and improve search results.
@@ -133,4 +133,7 @@ Pod::Spec.new do |s|
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
 
+  s.dependency  "CryptoSwift"
+  s.dependency  "SwiftIconFont"
+  s.dependency  "MBProgressHUD"
 end

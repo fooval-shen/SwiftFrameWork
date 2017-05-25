@@ -1,6 +1,6 @@
 //
 //  DeviceVersion.swift
-//  meiqu
+//  SwiftFrameWork
 //
 //  Created by shenfh on 16/6/29.
 //  Copyright © 2016年 com.meiqu.com. All rights reserved.
@@ -104,14 +104,14 @@ extension UIDevice {
         uname(&systemInfo)
         let machineMirror = Mirror(reflecting: systemInfo.machine)
         let identifier = machineMirror.children.reduce("") { identifier, element in
-            guard let value = element.value as? Int8 where value != 0 else { return identifier }
+            guard let value = element.value as? Int8 , value != 0 else { return identifier }
             return identifier + String(UnicodeScalar(UInt8(value)))
         }
         return deviceDode[identifier] ?? .unkown
     }
     
     public class func deviceSize()-> DeviceSize {
-        let deviceHeight = UIScreen.mainScreen().bounds.height
+        let deviceHeight = UIScreen.main.bounds.height
         switch deviceHeight {
         case 480.0:
             return .inch35

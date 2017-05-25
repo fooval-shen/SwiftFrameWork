@@ -15,12 +15,12 @@ public protocol ShadeViewProtocol:class,NetworkShadeProtocol {
 private var loadingViewKey      = "com.ViewController.loadingView"
 extension ShadeViewProtocol {
         
-    private  var loadingView:NetworkShadeView{
+    fileprivate  var loadingView:NetworkShadeView{
         get{
             if let view = objc_getAssociatedObject(self, &loadingViewKey) as? NetworkShadeView {
                 return view
             }
-            let view = NetworkShadeView(type: .Loading)
+            let view = NetworkShadeView(type: .loading)
             view.delegate = self
             objc_setAssociatedObject(self, &loadingViewKey, view, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             return view
@@ -31,7 +31,7 @@ extension ShadeViewProtocol {
      
      - parameter type: view type
      */
-    public func showShadeView(type:NetworkShadeViewType = .Loading){
+    public func showShadeView(_ type:NetworkShadeViewType = .loading){
         if !self.loadingView.isShow {
             self.loadingView.show(containerView,type: type)
         }else {

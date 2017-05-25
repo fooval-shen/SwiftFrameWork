@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+target 'SwiftExample' do
+    pod 'SwiftFrameWork',:path=>'/Users/shenfh/Project/Github/SwiftFrameWork'
+end
+
+target 'SwiftFrameWork' do
+    pod 'CryptoSwift'
+    pod 'MBProgressHUD'
+end

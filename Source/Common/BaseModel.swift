@@ -8,14 +8,14 @@
 
 import Foundation
 
-public class BaseModel {
+open class BaseModel {
     public init(){
         
     }
     
-    public var id:String = ""
+    open var id:String = ""
     
-    public func parse(object:AnyObject){
+    open func parse(_ object:AnyObject){
     
     }
 }

@@ -11,23 +11,28 @@ import UIKit
 
 public typealias NavigationClosure = () -> Void
 
-public class BaseViewController:UIViewController,ViewControllerProtocol {
+open class BaseViewController:UIViewController,ViewControllerProtocol {
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         prepareUI()
         prepareData()
     }
-    public func prepareUI() {
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
+        navigationController?.setNavigationBarHidden(navigationBarHidden, animated: animated)
+    }
+    
+    open func prepareUI() {
         if let navigationController = navigationController  {
             if(navigationController.viewControllers.count > 1) {
                 leftNavigationButton(UIImage(named: resourseName("arrowLeft")), hlightedImage: UIImage(named: resourseName("arrowLeftSelect")))
             }
         }
-       view.backgroundColor = UIColor.whiteColor()
+       view.backgroundColor = UIColor.white
     }
-    public func prepareData() {
+    open func prepareData() {
         
     }
     
@@ -42,10 +47,10 @@ public class BaseViewController:UIViewController,ViewControllerProtocol {
         return #selector(navigationButtonAction(_:))
     }
     
-    final  func navigationButtonAction(button:UIButton){
+    final  func navigationButtonAction(_ button:UIButton){
         if button.isEqual(leftNavigationButton) {
             guard let closure = leftNavButtonClosure else {
-                navigationController?.popViewControllerAnimated(true)
+                let _ = navigationController?.popViewController(animated: true)
                 return;
             }
            closure()
@@ -57,8 +62,8 @@ public class BaseViewController:UIViewController,ViewControllerProtocol {
         }
     }
     
-    public var leftNavButtonClosure: NavigationClosure?
-    public var rightNavButtonClosure: NavigationClosure?
-    
+    open var leftNavButtonClosure: NavigationClosure?
+    open var rightNavButtonClosure: NavigationClosure?
+    open var navigationBarHidden :Bool = false
    
 }

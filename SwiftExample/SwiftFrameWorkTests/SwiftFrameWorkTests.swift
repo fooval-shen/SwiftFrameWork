@@ -26,9 +26,15 @@ class SwiftFrameWorkTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
+    func testQuryUrl() {
+        let url = "https://www.google.com.hk/?gws_rd=cr,ssl#q=ios+router&newwindow=1&safe=strict&start=20"
+        let dicValue = url.queryParameters()
+        printlen(dicValue)
+        XCTAssert(dicValue.count > 0, "fdfdfd")
+    }
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }

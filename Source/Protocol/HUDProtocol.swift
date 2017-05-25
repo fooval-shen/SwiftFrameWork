@@ -7,55 +7,65 @@
 //
 
 import UIKit
-
-private var HUDKey = "com.view.hud"
+import MBProgressHUD
 
 public protocol HUDProtocol:class {
-    var containerView :UIView {get}
+    func HUDContainerView()->UIView
 }
 
-extension HUDProtocol {
-    
-    public func showMessage(message:String,delay:NSTimeInterval = 2){
-        hudViewModel       = .Text
-        hudView.label.text = message
-        showHudView(delay)
+
+public extension HUDProtocol {
+    public func showHUDText(text:String,autoHide:Bool = true) {
+        let hudView = HUDView()
+        hudView.mode = .text
+        hudView.label.text = text
+        hudView.show(animated: true)
+        if autoHide {
+            delayHide()
+        }
     }
     
-    public func showMessage(message:String,customView:UIView,delay:NSTimeInterval = 2){
-        hudViewModel       = .CustomView
-        hudView.label.text = message
-        hudView.customView = customView
-        showHudView(delay)
+    public func showProgressHUD(text:String? = nil) {
+        let hudView = HUDView()
+        hudView.mode = .indeterminate
+        hudView.show(animated: true)
     }
     
-    private func showHudView(delay:NSTimeInterval){
+    
+    public func hideHUD(animated:Bool = true) {
+        MBProgressHUD(for: HUDContainerView())?.hide(animated: animated)
+    }
+}
+
+fileprivate extension HUDProtocol {    
+    fileprivate func delayHide() {
+        delay(2.0) { [weak self] in
+            self?.hideHUD()
+        }
+    }
+    
+    fileprivate  func HUDView()->MBProgressHUD {
+        let containerView = HUDContainerView()
+        if let hudView = MBProgressHUD(for: containerView) {
+            hudView.hide(animated: false)
+        }
+        let hudView =  MBProgressHUD(view: containerView)
+        hudView.removeFromSuperViewOnHide = true
         containerView.addSubview(hudView)
-        hudView.showAnimated(true)
-        hudView.hideAnimated(true, afterDelay: delay)
+        return hudView
     }
-    private var hudView:MBProgressHUD {
-        get{
-            if let view = objc_getAssociatedObject(self, &HUDKey) as? MBProgressHUD {
-                return view
-            }
-            let view = MBProgressHUD(view: self.containerView)
-            view.removeFromSuperViewOnHide = true
-            view.square          = true
-            MBProgressHUD.appearance().contentColor = UIColor.whiteColor()
-            view.bezelView.color = UIColor.blackColor()
-            objc_setAssociatedObject(self, &HUDKey, view, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            return view
-        }
+}
+
+// MARK:- UIView
+public extension HUDProtocol where Self:UIView {
+    func HUDContainerView()->UIView {
+        return self
     }
-    private var hudViewModel:MBProgressHUDMode {
-        set {
-            if hudView.mode != newValue {
-                hudView.mode = newValue
-            }
-        }
-        get {
-            return hudView.mode
-        }
+}
+
+// MARK:- UIViewController
+public extension HUDProtocol where Self:UIViewController {
+    func HUDContainerView()->UIView {
+        return self.view
     }
 }

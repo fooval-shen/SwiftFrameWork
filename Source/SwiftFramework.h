@@ -19,6 +19,5 @@ FOUNDATION_EXPORT const unsigned char SwiftFrameworkVersionString[];
 #import <SwiftFramework/MQRefreshHeaderView.h>
 #import <SwiftFramework/MQActivityIndicatorAnimation.h>
 #import <SwiftFramework/SSKeychain.h>
-#import <SwiftFramework/MBProgressHUD.h>
 
 

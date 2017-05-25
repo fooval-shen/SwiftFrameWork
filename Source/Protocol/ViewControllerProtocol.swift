@@ -19,8 +19,7 @@ public protocol ViewControllerProtocol:class {
     func prepareData()
 }
 
-public extension ViewControllerProtocol where Self:UIViewController {
-    
+public extension ViewControllerProtocol where Self:UIViewController {   
     
     public func prepareUI(){
         if let navigationController = navigationController  {
@@ -28,7 +27,7 @@ public extension ViewControllerProtocol where Self:UIViewController {
                 leftNavigationButton(UIImage(named: resourseName("arrowLeft")), hlightedImage: UIImage(named: resourseName("arrowLeftSelect")))
             }
         }
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
     }
     // 加载数据
     public func prepareData(){
@@ -36,16 +35,16 @@ public extension ViewControllerProtocol where Self:UIViewController {
     }
     
     // MARK: navigation title
-    final public func navigationTitle(title:String) {
-        navigationTitle(NSAttributedString(string: title, attributes: [NSFontAttributeName:UIFont.systemFontOfSize(17),NSForegroundColorAttributeName:UIColor.whiteColor()]))
+    final public func navigationTitle(_ title:String) {
+        navigationTitle(NSAttributedString(string: title, attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: 17),NSForegroundColorAttributeName:UIColor.white]))
     }
     
-    final public func navigationTitle(attribute:NSAttributedString?){
+    final public func navigationTitle(_ attribute:NSAttributedString?){
         titleLable.attributedText = attribute
     }
     
     // MARK: left navigation button
-    public func leftNavigationButton(noramlImage:UIImage?,hlightedImage:UIImage?,size:CGSize = CGSizeZero){
+    public func leftNavigationButton(_ noramlImage:UIImage?,hlightedImage:UIImage?,size:CGSize = CGSize.zero){
         if leftNavigationButton != nil {
             leftNavigationButton = nil
         }
@@ -55,7 +54,7 @@ public extension ViewControllerProtocol where Self:UIViewController {
         }
         setLeftBarButton(button)
     }
-    public func leftNavigationButton(text:NSAttributedString,font:UIFont = UIFont.systemFontOfSize(16)){
+    public func leftNavigationButton(_ text:NSAttributedString){
         if leftNavigationButton != nil {
             leftNavigationButton = nil
         }
@@ -66,14 +65,14 @@ public extension ViewControllerProtocol where Self:UIViewController {
         setLeftBarButton(button)
     }
     // MARK: right navgation button
-    public func rightNavigationButton(noramlImage:UIImage?,hlightedImage:UIImage?,size:CGSize = CGSizeZero){
+    public func rightNavigationButton(_ noramlImage:UIImage?,hlightedImage:UIImage?,size:CGSize = CGSize.zero){
         if rightNavigationButton != nil {
             rightNavigationButton = nil
         }
         rightNavigationButton = createButton(noramlImage, hlightedImage: hlightedImage,size: size)
         setRightBarButton(rightNavigationButton!)
     }
-    public func rightNavigationButton(text:NSAttributedString){
+    public func rightNavigationButton(_ text:NSAttributedString){
         if rightNavigationButton != nil {
             rightNavigationButton = nil
         }
@@ -82,20 +81,20 @@ public extension ViewControllerProtocol where Self:UIViewController {
     }
     
     // MARK: pravate func
-    private func createButton(text:NSAttributedString)->UIButton{
+    fileprivate func createButton(_ text:NSAttributedString)->UIButton{
         let button             = UIButton(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
-        button.backgroundColor = UIColor.clearColor()
-        var buttonSize           = text.boundingRectWithSize(CGSize(width: 0, height: 44),options: [.UsesFontLeading,.UsesLineFragmentOrigin], context: nil).size
+        button.backgroundColor = UIColor.clear
+        var buttonSize           = text.boundingRect(with: CGSize(width: 0, height: 44),options: [.usesFontLeading,.usesLineFragmentOrigin], context: nil).size
         if buttonSize.width > 100 {
             buttonSize.width = 100
         }
         button.frame           = CGRect(x: 0, y: 0, width: buttonSize.width+4, height: 44)
-        button.setAttributedTitle(text, forState: .Normal)
+        button.setAttributedTitle(text, for: UIControlState())
         return button
     }
-    private func createButton(noramlImage:UIImage?,hlightedImage:UIImage?,size:CGSize = CGSizeZero)->UIButton {
+    fileprivate func createButton(_ noramlImage:UIImage?,hlightedImage:UIImage?,size:CGSize = CGSize.zero)->UIButton {
         let button                 = UIButton()
-        if CGSizeEqualToSize(size, CGSizeZero) {
+        if size.equalTo(CGSize.zero) {
             if let noramlImage = noramlImage {
                 button.frame = CGRect(x: 0, y: 0, width: noramlImage.size.width*30/noramlImage.size.height, height: 30)
             } else {
@@ -106,30 +105,30 @@ public extension ViewControllerProtocol where Self:UIViewController {
             button.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         }
         
-        button.backgroundColor = UIColor.clearColor();
+        button.backgroundColor = UIColor.clear;
         button.imageEdgeInsets = UIEdgeInsetsMake(3, 3, 3, 3);
-        button.setImage(noramlImage, forState: UIControlState.Normal)
-        button.setImage(hlightedImage, forState: UIControlState.Highlighted)
-        button.contentMode = UIViewContentMode.Center;
-        button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal);
+        button.setImage(noramlImage, for: UIControlState())
+        button.setImage(hlightedImage, for: UIControlState.highlighted)
+        button.contentMode = UIViewContentMode.center;
+        button.setTitleColor(UIColor.black, for: UIControlState());
         return button
     }
     
-    private func setLeftBarButton(button:UIButton){
-        let spaceItem = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
+    fileprivate func setLeftBarButton(_ button:UIButton){
+        let spaceItem = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         spaceItem.width = -8
         navigationItem.setLeftBarButtonItems([spaceItem,UIBarButtonItem(customView: button)], animated: false)
-        button.addTarget(self, action: leftNavigationButtonSelector, forControlEvents: .TouchUpInside)
+        button.addTarget(self, action: leftNavigationButtonSelector, for: .touchUpInside)
     }
-    private func setRightBarButton(button:UIButton){
-        let spaceItem = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
+    fileprivate func setRightBarButton(_ button:UIButton){
+        let spaceItem = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         spaceItem.width = -8
         navigationItem.setRightBarButtonItems([spaceItem,UIBarButtonItem(customView: button)], animated: false)
-        button.addTarget(self, action: rightNavigationButtonSelector, forControlEvents: .TouchUpInside)
+        button.addTarget(self, action: rightNavigationButtonSelector, for: .touchUpInside)
     }
     
     
-    public private(set) var leftNavigationButton: UIButton? {
+    public fileprivate(set) var leftNavigationButton: UIButton? {
         get{
             if let button = objc_getAssociatedObject(self,&leftNavigationButtonKey) as? UIButton {
                 return button
@@ -141,7 +140,7 @@ public extension ViewControllerProtocol where Self:UIViewController {
         }
     }
     
-    public private(set) var rightNavigationButton: UIButton? {
+    public fileprivate(set) var rightNavigationButton: UIButton? {
         get{
             if let button = objc_getAssociatedObject(self,&rightNavigationButtonKey) as? UIButton {
                 return button
@@ -162,14 +161,16 @@ public extension ViewControllerProtocol where Self:UIViewController {
                 return label
             }
             let label =  UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
-            label.backgroundColor = UIColor.clearColor();
-            label.textColor       = UIColor.whiteColor();
-            label.font            = UIFont.systemFontOfSize(17);
-            label.textAlignment   = .Center;
+            label.backgroundColor = UIColor.clear;
+            label.textColor       = UIColor.white;
+            label.font            = UIFont.systemFont(ofSize: 17);
+            label.textAlignment   = .center;
             objc_setAssociatedObject(self, &titleLabelKey, label, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             self.navigationItem.titleView = label;
             return label
         }
     }   
 }
+
+
 

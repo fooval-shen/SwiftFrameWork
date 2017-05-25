@@ -2,8 +2,10 @@
 Swift 开发的基础库封装
 
 # Requirements
- * Xcode 7+
- * Swift 2.3
+
+ * Swift 3.0+
+ * Xcode 8+
+
 
 # Installation
 ## CocoaPods
@@ -15,6 +17,7 @@ Swift 开发的基础库封装
 
 # HeaderRefreshProtocol
  下拉刷新协议
+
 ```swift
 public protocol HeaderRefreshProtocol:class {
     var refreshScrollView:UIScrollView {get}
